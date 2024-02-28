@@ -1,3 +1,5 @@
+{% include 'header.html' %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,11 +12,7 @@
     <div class="container">
         <h1 class="mt-5">Workouts</h1>
         <div class="mb-3">
-            <a href="/add-workout" class="btn btn-primary">Add Workout</a>
-            <form action="/search" method="post">
-                <input type="text" name="search_term" placeholder="Enter workout type">
-                <button type="submit" class="btn btn-secondary">Search</button>
-            </form>
+            
         </div>
         <div class="list-group">
             {% for workout in workouts %}
