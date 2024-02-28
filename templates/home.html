@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Workouts</h1>
+        <div class="mb-3">
+            <a href="/add-workout" class="btn btn-primary">Add Workout</a>
+            <form action="/search" method="post">
+                <input type="text" name="search_term" placeholder="Enter workout type">
+                <button type="submit" class="btn btn-secondary">Search</button>
+            </form>
+        </div>
+        <div class="list-group">
+            {% for workout in workouts %}
+                <a href="{{ url_for('edit_workout', workout_id=workout['_id']) }}" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{ workout['type'] }}</h5>
+                        <small>Edit</small>
+                    </div>
+                    <p class="mb-1">Duration: {{ workout['duration'] }} minutes</p>
+                    <small>Calories burned: {{ workout['calories'] }}</small>
+                    <form action="{{ url_for('delete_workout', workout_id=workout['_id']) }}" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </a>
+            {% else %}
+                <p class="text-muted">No workouts found.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
