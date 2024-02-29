@@ -204,17 +204,34 @@ def delete_workout(workout_id):
 #     workouts.delete_one({'_id': ObjectId(workout_id)})
 #     return redirect(url_for('home'))
 
-# Search workouts
+# Search workouts for individual users
 @app.route('/search', methods=['GET', 'POST'])
+@login_required  # Ensure only authenticated users can search
 def search():
     if request.method == 'POST':
         query = request.form.get('search_term', '')
         if query:  # Check if search_term is not empty
-            search_results = workouts.find({"type": {"$regex": query, "$options": "i"}})
+            # Include user_id in the query to filter results for the current user
+            search_results = workouts.find({
+                "type": {"$regex": query, "$options": "i"},
+                "user_id": current_user.id  # Filter by the current user's ID
+            })
         else:
             search_results = []  # No search term provided, so no results
         return render_template('search_results.html', workouts=search_results)
     return render_template('search.html')
+
+
+# @app.route('/search', methods=['GET', 'POST'])
+# def search():
+#     if request.method == 'POST':
+#         query = request.form.get('search_term', '')
+#         if query:  # Check if search_term is not empty
+#             search_results = workouts.find({"type": {"$regex": query, "$options": "i"}})
+#         else:
+#             search_results = []  # No search term provided, so no results
+#         return render_template('search_results.html', workouts=search_results)
+#     return render_template('search.html')
 
 
 # Start the application
