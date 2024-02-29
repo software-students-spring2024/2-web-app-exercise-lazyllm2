@@ -4,12 +4,12 @@ A little exercise to build a web application following an agile development proc
 
 ## Product vision statement
 
-See instructions. Delete this line and place the Product Vision Statement here.
+Our app aims to help people achieve their health and fitness goals with user-friendly interfaces, workout data tracking, and personalized training plans.
 
 ## User stories
 
-See instructions. Delete this line and place a link to the user stories here.
+https://github.com/software-students-spring2024/2-web-app-exercise-lazyllm2/issues
 
 ## Task boards
 
-See instructions. Delete this line and place a link to the task boards here.
+https://github.com/software-students-spring2024/2-web-app-exercise-lazyllm2/projects?query=is%3Aopen
