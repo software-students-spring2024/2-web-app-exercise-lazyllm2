@@ -8,6 +8,8 @@ flask = "*"
 pymongo = "*"
 bson = "*"
 python-dotenv = "*"
+flask-login = "*"
+flask-bcrypt = "*"
 
 [dev-packages]
 

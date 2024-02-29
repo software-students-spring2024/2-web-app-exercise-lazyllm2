@@ -1,4 +1,25 @@
 <!-- header.html -->
+<style>
+    .auth-info {
+        font-size: 0.9rem; 
+        margin-bottom: 0; 
+    }
+</style>
+
+{% if current_user.is_authenticated %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="py-2 d-flex justify-content-between align-items-center">
+                <div class="auth-info">
+                    Welcome, {{ current_user.username }}! <a href="/logout" class="btn btn-outline-primary btn-sm ml-2">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/">Fitness Tracker</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
