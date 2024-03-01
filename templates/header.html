@@ -28,7 +28,25 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <a class="nav-item nav-link" href="/">My Training Schedule</a>
-            <a class="nav-item nav-link" href="/add-workout">Add Workout</a>
+            <div class="dropdown">
+                <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Add Workout
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <h6 class="dropdown-header">Cardio</h6>
+                    <a class="dropdown-item" data-workout="Running" href="/add-workout?type=Running">Running</a>
+                    <a class="dropdown-item" data-workout="Spinning" href="/add-workout?type=Spinning">Spinning</a>
+                    <a class="dropdown-item" data-workout="Jump Rope" href="/add-workout?type=Jump Rope">Jump Rope</a>
+                    <a class="dropdown-item" data-workout="Swimming" href="/add-workout?type=Swimming">Swimming</a>
+                    <a class="dropdown-item" data-workout="Rowing" href="/add-workout?type=Rowing">Rowing</a>
+                    <h6 class="dropdown-header">Strength</h6>
+                    <a class="dropdown-item" data-workout="Weight Lifting" href="/add-workout?type=Weight Lifting">Weight Lifting</a>
+                    <a class="dropdown-item" data-workout="Push-ups" href="/add-workout?type=Push-ups">Push-ups</a>
+                    <a class="dropdown-item" data-workout="Pull-ups" href="/add-workout?type=Pull-ups">Pull-ups</a>
+                    <a class="dropdown-item" data-workout="Squats" href="/add-workout?type=Squats">Squats</a>
+                    <a class="dropdown-item" data-workout="Deadlifts" href="/add-workout?type=Deadlifts">Deadlifts</a>
+                </div>
+            </div>
         </div>
         <form class="form-inline ml-auto" action="/search" method="post">
             <input class="form-control mr-sm-2" type="search" placeholder="Enter workout type" aria-label="Search" name="search_term">
