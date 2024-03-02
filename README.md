@@ -1,6 +1,5 @@
 # Web Application Exercise
-
-A little exercise to build a web application following an agile development process. See the [instructions](instructions.md) for more detail.
+FitTrack is all-in-one fitness companion, simplifying workout tracking by calculating calories burned from user exercise type and duration. It securely logs user data, allowing user to view their progress and daily exercise history at a glance. Perfect for anyone aiming to improve their fitness level, FitTrack motivates user towards their goals, whether it's weight loss, muscle building, or maintaining fitness.
 
 ## Product vision statement
 
