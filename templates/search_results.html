@@ -24,9 +24,9 @@
                     </div>
                     <p class="mb-1">Duration: {{ workout['duration'] }} minutes</p>
                     <small>Calories burned: {{ workout['calories'] }}</small>
-                    <form action="{{ url_for('delete_workout', workout_id=workout['_id']) }}" method="post" class="d-inline">
+                    <form action="{{ url_for('delete_workout', workout_id=workout['_id']) }}" method="post" class="delete-button">
                         <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                    </form>
+                    </form>   
                 </a>
             {% else %}
                 <p class="text-muted">No workouts found matching your filters.</p>
