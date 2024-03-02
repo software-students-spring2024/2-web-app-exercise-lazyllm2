@@ -52,5 +52,33 @@
             }
         });
         </script>
+    <script>
+        const caloriesPerMinute = {
+            'Running': 12,  
+            'Spinning': 10,   
+            'Jump Rope': 15, 
+            'Swimming': 12,
+            'Rowing': 11,  
+            'Weight Lifting': 4,   
+            'Push-ups': 8, 
+            'Pull-ups': 9,
+            'Squats': 8,
+            'Deadlifts': 8
+        };
+
+        function calculateCalories() {
+            const workoutType = document.getElementById('type').value;
+            const duration = parseInt(document.getElementById('duration').value, 10);
+            if (duration < 0) {
+            duration = 0;
+            durationInput.value = 0;
+            }
+            const caloriesBurned = duration * (caloriesPerMinute[workoutType] || 0);
+            document.getElementById('calories').value = isNaN(caloriesBurned) ? '' : caloriesBurned; 
+        }
+
+        document.getElementById('type').addEventListener('change', calculateCalories);
+        document.getElementById('duration').addEventListener('input', calculateCalories);
+    </script>
 </body>
 </html>
