@@ -48,9 +48,22 @@
                 </div>
             </div>
         </div>
-        <form class="form-inline ml-auto" action="/search" method="post">
-            <input class="form-control mr-sm-2" type="search" placeholder="Enter workout type" aria-label="Search" name="search_term">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <form class="form-inline ml-auto" action="/filter" method="get">
+            <input class="form-control mr-sm-2" type="date" name="filter_date" placeholder="Filter by Date">
+            <select class="form-control mr-sm-2" name="filter_type">
+                <option value="">Select Exercise Type</option>
+                <option value="Running">Running</option>
+                <option value="Spinning">Spinning</option>
+                <option value="Jump Rope">Jump Rope</option>
+                <option value="Swimming">Swimming</option>
+                <option value="Rowing">Rowing</option>
+                <option value="Weight Lifting">Weight Lifting</option>
+                <option value="Push-ups">Push-ups</option>
+                <option value="Pull-ups">Pull-ups</option>
+                <option value="Squats">Squats</option>
+                <option value="Deadlifts">Deadlifts</option>
+            </select>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filter</button>
         </form>
     </div>
 </nav>
