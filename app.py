@@ -141,11 +141,26 @@ def home():
 @login_required
 def add_workout():
     if request.method == 'POST':
+        work_type = request.form.get('type')
+        duration = int(request.form.get('duration'))
         # Extract form data and include user_id
+        calories_per_minute = {
+            'Running': 12,  
+            'Spinning': 10,   
+            'Jump Rope': 15, 
+            'Swimming': 12,
+            'Rowing': 11,  
+            'Weight Lifting': 4,   
+            'Push-ups': 8, 
+            'Pull-ups': 9,
+            'Squats': 8,
+            'Deadlifts': 8
+        }
+        calories_burned = duration * calories_per_minute.get(work_type, 5)
         workout_data = {
-            'type': request.form.get('type'),
-            'duration': int(request.form.get('duration')),
-            'calories': int(request.form.get('calories')),
+            'type': work_type,
+            'duration': duration,
+            'calories': calories_burned,
             'date': request.form.get('date'),
             'user_id': current_user.id  # Associate workout with the current user's ID
         }
