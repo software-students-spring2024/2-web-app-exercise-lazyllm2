@@ -6,15 +6,34 @@
     <meta charset="UTF-8">
     <title>Add Workout</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='custom.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h2 class="mt-5">Add a New Workout</h2>
-        <form action="/add-workout" method="post">
-            <div class="form-group">
-                <label for="type">Workout Name</label>
-                <input type="text" class="form-control" id="type" name="type" required>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Add a New Workout</h2>
+                <form action="/add-workout" method="post">
+                    <div class="form-group">
+                        <label for="type">Workout Name</label>
+                        <input type="text" class="form-control" id="type" name="type" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="duration">Duration (in minutes)</label>
+                        <input type="number" class="form-control" id="duration" name="duration" required min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="calories">Calories Burned</label>
+                        <input type="number" class="form-control" id="calories" name="calories" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" class="form-control" id="date" name="date" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Workout</button>
+                </form>
             </div>
+<<<<<<< Updated upstream
             <div class="form-group">
                 <label for="duration">Duration (in minutes)</label>
                 <input type="number" class="form-control" id="duration" name="duration" required>
@@ -29,6 +48,9 @@
             </div>
             <button type="submit" class="btn btn-primary">Add Workout</button>
         </form>
+=======
+        </div>
+>>>>>>> Stashed changes
     </div>
     <script>
         function getQueryParam(name) {
