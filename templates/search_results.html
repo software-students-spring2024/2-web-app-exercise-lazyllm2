@@ -22,8 +22,9 @@
                         <h5 class="mb-1">{{ workout['type'] }}</h5>
                         <small>Edit</small>
                     </div>
+                    <p class="mb-1">Date: {{ workout['date'] }}</p>
                     <p class="mb-1">Duration: {{ workout['duration'] }} minutes</p>
-                    <small>Calories burned: {{ workout['calories'] }}</small>
+                    <p class="mb-1">Calories burned: {{ workout['calories'] }}</p>
                     <form action="{{ url_for('delete_workout', workout_id=workout['_id']) }}" method="post" class="delete-button">
                         <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                     </form>   
