@@ -14,7 +14,18 @@
         <form action="/edit/{{ workout['_id'] }}" method="post">
             <div class="form-group">
                 <label for="type">Workout Type</label>
-                <input type="text" class="form-control" id="type" name="type" value="{{ workout['type'] }}" required>
+                <select id="type" name="type" class="form-control" required>
+                    <option value="Running" {% if workout['type'] == 'Running' %}selected{% endif %}>Running</option>
+                    <option value="Spinning" {% if workout['type'] == 'Spinning' %}selected{% endif %}>Spinning</option>
+                    <option value="Jump Rope" {% if workout['type'] == 'Jump Rope' %}selected{% endif %}>Jump Rope</option>
+                    <option value="Swimming" {% if workout['type'] == 'Swimming' %}selected{% endif %}>Swimming</option>
+                    <option value="Rowing" {% if workout['type'] == 'Rowing' %}selected{% endif %}>Rowing</option>
+                    <option value="Weight Lifting" {% if workout['type'] == 'Weight Lifting' %}selected{% endif %}>Weight Lifting</option>
+                    <option value="Push-ups" {% if workout['type'] == 'Push-ups' %}selected{% endif %}>Push-ups</option>
+                    <option value="Pull-ups" {% if workout['type'] == 'Pull-ups' %}selected{% endif %}>Pull-ups</option>
+                    <option value="Squats" {% if workout['type'] == 'Squats' %}selected{% endif %}>Squats</option>
+                    <option value="Deadlifts" {% if workout['type'] == 'Deadlifts' %}selected{% endif %}>Deadlifts</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="duration">Duration (in minutes)</label>
@@ -31,5 +42,32 @@
             <button type="submit" class="btn btn-primary">Update Workout</button>
         </form>
     </div>
+    <script>
+        const caloriesPerMinute = {
+            'Running': 12,
+            'Spinning': 10,
+            'Jump Rope': 15,
+            'Swimming': 12,
+            'Rowing': 11,
+            'Weight Lifting': 4,
+            'Push-ups': 8,
+            'Pull-ups': 9,
+            'Squats': 8,
+            'Deadlifts': 8
+        };
+
+        function calculateCalories() {
+            const workoutType = document.getElementById('type').value;
+            const duration = parseInt(document.getElementById('duration').value, 10);
+            if (duration < 0) {
+                document.getElementById('duration').value = 0;
+            }
+            const caloriesBurned = duration * (caloriesPerMinute[workoutType] || 0);
+            document.getElementById('calories').value = isNaN(caloriesBurned) ? '' : caloriesBurned;
+        }
+
+        document.getElementById('type').addEventListener('change', calculateCalories);
+        document.getElementById('duration').addEventListener('input', calculateCalories);
+    </script>
 </body>
 </html>

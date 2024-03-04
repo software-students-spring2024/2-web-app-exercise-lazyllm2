@@ -81,61 +81,13 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
-
-# @app.route('/')
-# def home():
-#     return "Hello, Fitness Tracker!"
-
-
-# Define a list of workouts to insert
-initial_workouts = [
-    {"type": "Running", "duration": 30, "calories": 300, "date": "2024-02-27"},
-    {"type": "Cycling", "duration": 45, "calories": 450, "date": "2024-02-26"},
-    {"type": "Swimming", "duration": 30, "calories": 330, "date": "2024-02-25"},
-    {"type": "Walking", "duration": 60, "calories": 200, "date": "2024-02-24"},
-]
-
-# Insert the workouts into the collection
-workouts.insert_many(initial_workouts)
-
-print("Initial data added to the FitnessTracker database.")
-
 # Home route
 @app.route('/')
 @login_required
 def home():
     # Filter workouts by the current user's ID
-    user_workouts = workouts.find({'user_id': current_user.id})
+    user_workouts = workouts.find({'user_id': current_user.id}).sort('date',-1)
     return render_template('home.html', workouts=user_workouts)
-
-
-# Home route
-# @app.route('/')
-# @login_required
-# def home():
-#     all_workouts = workouts.find()
-#     return render_template('home.html', workouts=all_workouts)
-
-# # Home route
-# @app.route('/')
-# def home():
-#     all_workouts = workouts.find()
-#     return render_template('home.html', workouts=all_workouts)
-
-# Add workout form
-# @app.route('/add-workout', methods=['GET', 'POST'])
-# def add_workout():
-#     if request.method == 'POST':
-#         # Extract form data
-#         workout_data = {
-#             'type': request.form.get('type'),
-#             'duration': int(request.form.get('duration')),
-#             'calories': int(request.form.get('calories')),
-#             'date': request.form.get('date')
-#         }
-#         workouts.insert_one(workout_data)
-#         return redirect(url_for('home'))
-#     return render_template('add_workout.html')
 
 # Add workout form
 @app.route('/add-workout', methods=['GET', 'POST'])
@@ -193,20 +145,6 @@ def edit_workout(workout_id):
 
     return render_template('edit_workout.html', workout=workout)
 
-# @app.route('/edit/<workout_id>', methods=['GET', 'POST'])
-# def edit_workout(workout_id):
-#     workout = workouts.find_one({'_id': ObjectId(workout_id)})
-#     if request.method == 'POST':
-#         updates = {
-#             'type': request.form.get('type'),
-#             'duration': int(request.form.get('duration')),
-#             'calories': int(request.form.get('calories')),
-#             'date': request.form.get('date')
-#         }
-#         workouts.update_one({'_id': ObjectId(workout_id)}, {'$set': updates})
-#         return redirect(url_for('home'))
-#     return render_template('edit_workout.html', workout=workout)
-
 # Delete workout
 @app.route('/delete/<workout_id>', methods=['POST'])
 @login_required
@@ -214,11 +152,6 @@ def delete_workout(workout_id):
     # delete the workout only if it belongs to the current user
     workouts.delete_one({'_id': ObjectId(workout_id), 'user_id': current_user.id})
     return redirect(url_for('home'))
-
-# @app.route('/delete/<workout_id>', methods=['POST'])
-# def delete_workout(workout_id):
-#     workouts.delete_one({'_id': ObjectId(workout_id)})
-#     return redirect(url_for('home'))
 
 # Search workouts for individual users
 @app.route('/filter', methods=['GET'])
@@ -238,18 +171,6 @@ def filter_workouts():
     search_results = workouts.find(query)
 
     return render_template('search_results.html', workouts=search_results)
-
-
-# @app.route('/search', methods=['GET', 'POST'])
-# def search():
-#     if request.method == 'POST':
-#         query = request.form.get('search_term', '')
-#         if query:  # Check if search_term is not empty
-#             search_results = workouts.find({"type": {"$regex": query, "$options": "i"}})
-#         else:
-#             search_results = []  # No search term provided, so no results
-#         return render_template('search_results.html', workouts=search_results)
-#     return render_template('search.html')
 
 
 # Start the application
