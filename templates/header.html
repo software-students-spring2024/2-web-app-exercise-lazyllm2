@@ -1,0 +1,69 @@
+<!-- header.html -->
+<style>
+    .auth-info {
+        font-size: 0.9rem; 
+        margin-bottom: 0; 
+    }
+</style>
+
+{% if current_user.is_authenticated %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="py-2 d-flex justify-content-between align-items-center">
+                <div class="auth-info">
+                    Welcome, {{ current_user.username }}! <a href="/logout" class="btn btn-outline-primary btn-sm ml-2">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Fitness Tracker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/">My Workouts</a>
+            <div class="dropdown">
+                <a class="nav-item nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Add Workout
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <h6 class="dropdown-header">Cardio</h6>
+                    <a class="dropdown-item" data-workout="Running" href="/add-workout?type=Running">Running</a>
+                    <a class="dropdown-item" data-workout="Spinning" href="/add-workout?type=Spinning">Spinning</a>
+                    <a class="dropdown-item" data-workout="Jump Rope" href="/add-workout?type=Jump Rope">Jump Rope</a>
+                    <a class="dropdown-item" data-workout="Swimming" href="/add-workout?type=Swimming">Swimming</a>
+                    <a class="dropdown-item" data-workout="Rowing" href="/add-workout?type=Rowing">Rowing</a>
+                    <h6 class="dropdown-header">Strength</h6>
+                    <a class="dropdown-item" data-workout="Weight Lifting" href="/add-workout?type=Weight Lifting">Weight Lifting</a>
+                    <a class="dropdown-item" data-workout="Push-ups" href="/add-workout?type=Push-ups">Push-ups</a>
+                    <a class="dropdown-item" data-workout="Pull-ups" href="/add-workout?type=Pull-ups">Pull-ups</a>
+                    <a class="dropdown-item" data-workout="Squats" href="/add-workout?type=Squats">Squats</a>
+                    <a class="dropdown-item" data-workout="Deadlifts" href="/add-workout?type=Deadlifts">Deadlifts</a>
+                </div>
+            </div>
+        </div>
+        <form class="form-inline ml-auto" action="/filter" method="get">
+            <input class="form-control mr-sm-2" type="date" name="filter_date" placeholder="Filter by Date">
+            <select class="form-control mr-sm-2" name="filter_type">
+                <option value="">Select Exercise Type</option>
+                <option value="Running">Running</option>
+                <option value="Spinning">Spinning</option>
+                <option value="Jump Rope">Jump Rope</option>
+                <option value="Swimming">Swimming</option>
+                <option value="Rowing">Rowing</option>
+                <option value="Weight Lifting">Weight Lifting</option>
+                <option value="Push-ups">Push-ups</option>
+                <option value="Pull-ups">Pull-ups</option>
+                <option value="Squats">Squats</option>
+                <option value="Deadlifts">Deadlifts</option>
+            </select>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filter</button>
+        </form>
+    </div>
+</nav>

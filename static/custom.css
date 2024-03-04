@@ -1,0 +1,78 @@
+.dark-nav-link {
+    color: #343a40 !important;
+}
+
+body {
+    background-image: url('/static/images/background4.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 600px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.custom-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.custom-btn:hover {
+    background-color: #0056b3;
+}
+
+.card-title {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+p {
+    color: #666;
+    font-size: 1em;
+}
+
+.list-group-item {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0,0,0,0.1);
+    color: #000;
+    position: relative;
+}
+
+
+.delete-button {
+    position: absolute;
+    bottom: 0;
+    right: 10;
+}
+
+.navbar, .form-inline, .form-inline input, .form-inline select, .form-inline button {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.navbar {
+    border: none !important;
+}
+
+.form-inline input, .form-inline select {
+    border: 1px solid rgba(0,0,0,0.1) !important;
+    color: #343a40 !important;
+}
+
+.form-inline button {
+    border-color: #28a745 !important;
+}
+
+.form-control {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid #ced4da;
+}
