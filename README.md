@@ -1,15 +1,14 @@
 # Web Application Exercise
-
-A little exercise to build a web application following an agile development process. See the [instructions](instructions.md) for more detail.
+FitTrack is all-in-one fitness companion, simplifying workout tracking by calculating calories burned from user exercise type and duration. It securely logs user data, allowing user to view their progress and daily exercise history at a glance. Perfect for anyone aiming to improve their fitness level, FitTrack motivates user towards their goals, whether it's weight loss, muscle building, or maintaining fitness.
 
 ## Product vision statement
 
-See instructions. Delete this line and place the Product Vision Statement here.
+Our app aims to help people achieve their health and fitness goals with user-friendly interfaces, workout data tracking, and personalized training plans.
 
 ## User stories
 
-See instructions. Delete this line and place a link to the user stories here.
+https://github.com/software-students-spring2024/2-web-app-exercise-lazyllm2/issues
 
 ## Task boards
 
-See instructions. Delete this line and place a link to the task boards here.
+https://github.com/software-students-spring2024/2-web-app-exercise-lazyllm2/projects?query=is%3Aopen
