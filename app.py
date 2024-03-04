@@ -81,7 +81,6 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
-
 # Home route
 @app.route('/')
 @login_required
@@ -89,7 +88,6 @@ def home():
     # Filter workouts by the current user's ID
     user_workouts = workouts.find({'user_id': current_user.id}).sort('date',-1)
     return render_template('home.html', workouts=user_workouts)
-
 
 # Add workout form
 @app.route('/add-workout', methods=['GET', 'POST'])
@@ -147,7 +145,6 @@ def edit_workout(workout_id):
 
     return render_template('edit_workout.html', workout=workout)
 
-
 # Delete workout
 @app.route('/delete/<workout_id>', methods=['POST'])
 @login_required
@@ -155,7 +152,6 @@ def delete_workout(workout_id):
     # delete the workout only if it belongs to the current user
     workouts.delete_one({'_id': ObjectId(workout_id), 'user_id': current_user.id})
     return redirect(url_for('home'))
-
 
 # Search workouts for individual users
 @app.route('/filter', methods=['GET'])
